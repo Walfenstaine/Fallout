@@ -12,6 +12,10 @@ public class WeaponEventer : MonoBehaviour
     public MeshRenderer weaponsMat;
     public Animator anim;
 
+    public void OnWeapon(int num) 
+    {
+        weaponNum = num;
+    }
     private void FixedUpdate()
     {
         for (int i = 0; i < mesh.Length; i++) 
