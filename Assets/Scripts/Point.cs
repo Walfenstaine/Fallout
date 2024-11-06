@@ -5,6 +5,7 @@ using System;
 
 public class Point : MonoBehaviour
 {
+
     public Animator anim;
     public static event Action<Vector3> pos;
     private void Update()
