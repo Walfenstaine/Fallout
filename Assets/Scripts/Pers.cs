@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.PlayerSettings;
 
 public class Pers : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Animator anim;
-   public bool active;
+    public bool active;
     private void OnEnable()
     {
         Point.pos += Ontarget;

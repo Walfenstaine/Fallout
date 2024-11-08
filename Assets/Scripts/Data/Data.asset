@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3b5397ce811c34bab73069b41cf578, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  isWeapones: 00000000000000000000000000000000
+  index: 040000000300000000000000
