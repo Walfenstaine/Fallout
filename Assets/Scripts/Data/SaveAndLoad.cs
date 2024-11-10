@@ -10,6 +10,21 @@ public class SaveAndLoad : MonoBehaviour
     {
         public List<int> list;
     }
+    public void MaineMenue()
+    {
+        Save();
+        SceneManager.LoadScene("Menue");
+    }
+    public void Exit()
+    {
+        Save();
+        Application.Quit();
+    }
+    public void Resed()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Scene1");
+    }
     public void Save() 
     {
         var listInClass = new MyList();
