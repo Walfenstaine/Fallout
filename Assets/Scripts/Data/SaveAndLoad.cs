@@ -12,7 +12,7 @@ public class SaveAndLoad : MonoBehaviour
     }
     public void MaineMenue()
     {
-        Save();
+        data.index.Clear();
         SceneManager.LoadScene("Menue");
     }
     public void Exit()
@@ -22,6 +22,7 @@ public class SaveAndLoad : MonoBehaviour
     }
     public void Resed()
     {
+        data.index.RemoveAll(data.index.Contains);
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Scene1");
     }
