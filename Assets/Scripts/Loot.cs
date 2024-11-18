@@ -6,7 +6,6 @@ public class Loot : MonoBehaviour
 {
     public int index;
     public Inventared inventared;
-    public Data data;
     public SpriteRenderer render;
     private void Start()
     {
@@ -16,7 +15,7 @@ public class Loot : MonoBehaviour
     {
         if (other.tag == "Player") 
         {
-            data.index.Add(index);
+            other.GetComponent<Inventar_Mini>().AddXML(index);
             Destroy(gameObject);
         }
     }
