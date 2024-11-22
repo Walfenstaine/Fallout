@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Pers : MonoBehaviour
 {
+    public Transform butons;
     public NavMeshAgent agent;
     public Animator anim;
     public bool active;
@@ -23,8 +24,14 @@ public class Pers : MonoBehaviour
             agent.destination = target;
         }
     }
+    public void Deactive() 
+    {
+        active = false;
+    }
     private void FixedUpdate()
     {
+        butons.gameObject.SetActive(active);
+        butons.eulerAngles = new Vector3(0,180,0);
         if (agent.velocity != Vector3.zero)
         {
             active = false;
