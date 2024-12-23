@@ -53,6 +53,7 @@ public class Pers : MonoBehaviour
             {
                 if (hit.collider == this.GetComponent<BoxCollider>())
                 {
+                    Cam.rid.pos = transform.position;
                     active = true;
                 }
                 else 

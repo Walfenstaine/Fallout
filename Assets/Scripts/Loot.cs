@@ -15,8 +15,14 @@ public class Loot : MonoBehaviour
     {
         if (other.tag == "Player") 
         {
-            other.GetComponent<Inventar_Mini>().AddXML(index);
-            Destroy(gameObject);
+            Inventar_Mini mini = other.GetComponent<Inventar_Mini>();
+            if (mini.inventar.Count < 10) 
+            {
+                mini.inventar.Add(index);
+                mini.Save();
+                Destroy(gameObject);
+            }
+            
         }
     }
 }

@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class Cam : MonoBehaviour
 {
-    private Vector3 pos;
-
+    public Vector3 pos;
+    public static Cam rid { get; set; }
+    void Awake()
+    {
+        if (rid == null)
+        {
+            rid = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+    void OnDestroy()
+    {
+        rid = null;
+    }
     private void Start()
     {
         pos = transform.position;
@@ -13,7 +28,7 @@ public class Cam : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, pos, 3 * Time.deltaTime);
     }
 
     private void Update()

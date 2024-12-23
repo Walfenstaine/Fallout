@@ -22,14 +22,16 @@ public class WeaponEventer : MonoBehaviour
         {
             weaponsMesh.mesh = mesh[weaponNum];
             weaponsMat.material = material[weaponNum];
-            if (i == weaponNum)
-            {
-                anim.SetLayerWeight(layers[i], 1);
-            }
-            else 
-            {
-                anim.SetLayerWeight(layers[i], 0);
-            }
+            
+        }
+        if (weaponNum == 0)
+        {
+            anim.SetLayerWeight(1, 0);
+            anim.SetLayerWeight(2, 0);
+        }
+        else
+        {
+            anim.SetLayerWeight(layers[weaponNum], 1);
         }
     }
 }
