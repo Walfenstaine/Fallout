@@ -13,20 +13,6 @@ public class IconInv : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (data.index.Count > 0) 
-        {
-            for (int i = 0; i < data.index.Count; i++)
-            {
-                if (index < data.index.Count)
-                {
-                    int num = data.index[index];
-                    image.sprite = inventared.icon[num];
-                }
-                else
-                {
-                    image.sprite = stok;
-                }
-            }
-        }
+       
     }
 }

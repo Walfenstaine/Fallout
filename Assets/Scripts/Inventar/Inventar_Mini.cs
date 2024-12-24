@@ -10,8 +10,10 @@ public class Inventar_Mini : MonoBehaviour
 
     private void Awake()
     {
+
         if (PlayerPrefs.HasKey(gameObject.name))
         {
+            Debug.Log("ok");
             string globalDataJSON = PlayerPrefs.GetString(gameObject.name);
             MyList loadedList = JsonUtility.FromJson<MyList>(globalDataJSON);
             for (int i = 0; i < loadedList.list.Count; i++)
