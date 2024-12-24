@@ -33,20 +33,33 @@ public class Inv_Pers : MonoBehaviour
     {
         clic.Invoke(true);
         fon.enabled = true;
-        for (int i = 0; i < index.Count; i++)
-        {
-            image[i].sprite = inv_Icon.icon[index[i]];
-        }
     }
     public void InvOff() 
     {
+        index.Clear();
         clic.Invoke(false);
         fon.enabled = false;
-        index.Clear();
+        
     }
 
     private void FixedUpdate()
     {
+
+        if (index.Count > 0)
+        {
+            for (int i = 0; i < index.Count; i++)
+            {
+                image[i].sprite = inv_Icon.icon[index[i]];
+            }
+        }
         
+        else
+        {
+            for (int i = 0; i < image.Length; i++)
+            {
+                image[i].sprite = inv_Icon.icon[0];
+            }
+            
+        }
     }
 }

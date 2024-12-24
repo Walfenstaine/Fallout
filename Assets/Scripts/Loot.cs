@@ -18,8 +18,8 @@ public class Loot : MonoBehaviour
             Inventar_Mini mini = other.GetComponent<Inventar_Mini>();
             if (mini.inventar.Count < 10) 
             {
-                mini.inventar.Add(index);
-                mini.Save();
+                mini.Save(index);
+                Cam.rid.Save();
                 Destroy(gameObject);
             }
             

@@ -11,6 +11,9 @@ public class Pers : MonoBehaviour
     public bool active;
     private void OnEnable()
     {
+        agent.avoidancePriority = Random.Range(0,99);
+        active = true;
+        Ontarget(transform.forward * Random.Range(1,30));
         Point.pos += Ontarget;
     }
     private void OnDisable()
@@ -32,7 +35,7 @@ public class Pers : MonoBehaviour
     {
         butons.gameObject.SetActive(active);
         butons.eulerAngles = new Vector3(0,180,0);
-        if (agent.velocity != Vector3.zero)
+        if (agent.velocity.magnitude > 0.7f)
         {
             active = false;
             anim.SetBool("Run", true);
@@ -64,6 +67,13 @@ public class Pers : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player") 
+        {
+            active = false;
         }
     }
 }

@@ -17,12 +17,8 @@ public class Interface : MonoBehaviour
         {
             if (Cam.rid)
             {
-                Cam.rid.NewPers(0);
+                Cam.rid.NewPers();
             }
-
-        }
-        else 
-        {
 
         }
 

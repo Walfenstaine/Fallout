@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Xml.Linq;
 using UnityEngine;
 using static SaveAndLoad;
 
 public class Cam : MonoBehaviour
 {
-    public List<int> perses;
+    public List <Inventar_Mini> perses;
     public GameObject pers;
     public Vector3 pos;
     public static Cam rid { get; set; }
@@ -15,11 +16,10 @@ public class Cam : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Pers"))
         {
-            string globalDataJSON = PlayerPrefs.GetString("Pers");
-            MyList loadedList = JsonUtility.FromJson<MyList>(globalDataJSON);
-            for (int i = 0; i < loadedList.list.Count; i++)
+            for (int i = 0; i < PlayerPrefs.GetInt("Pers"); i++)
             {
-                NewPers(loadedList.list[i]);
+                GameObject g = Instantiate(pers);
+                perses.Add(g.GetComponent<Inventar_Mini>());
             }
         }
         if (rid == null)
@@ -39,22 +39,24 @@ public class Cam : MonoBehaviour
     {
         pos = transform.position;
     }
-
-    public void NewPers(int name) 
+    public void Save() 
     {
-        perses.Add(name);
-        var listInClass = new MyList();
-        listInClass.list = perses;
-        var outputString = JsonUtility.ToJson(listInClass);
-        PlayerPrefs.SetString("Pers", outputString);
-        GameObject p = Instantiate(pers);
-        p.transform.position = transform.position;
-        p.name = "" + name;
+        PlayerPrefs.SetInt("Pers", perses.Count);
+    }
+    public void NewPers() 
+    {
+        GameObject g = Instantiate(pers);
+        perses.Add(g.GetComponent<Inventar_Mini>());
+        Save();
     }
 
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, pos, 3 * Time.deltaTime);
+        for (int i = 0; i < perses.Count; i++) 
+        {
+            perses[i].index = i;
+        }
     }
 
     private void Update()

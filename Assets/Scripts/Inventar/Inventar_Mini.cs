@@ -6,15 +6,18 @@ using static SaveAndLoad;
 
 public class Inventar_Mini : MonoBehaviour
 {
+    public int index;
     public List<int> inventar;
-
     private void Awake()
     {
-
-        if (PlayerPrefs.HasKey(gameObject.name))
+        InvokeRepeating("Loadinventory", 0.5f, 0);
+       
+    }
+    public void Loadinventory() 
+    {
+        if (PlayerPrefs.HasKey("" + index))
         {
-            Debug.Log("ok");
-            string globalDataJSON = PlayerPrefs.GetString(gameObject.name);
+            string globalDataJSON = PlayerPrefs.GetString("" + index);
             MyList loadedList = JsonUtility.FromJson<MyList>(globalDataJSON);
             for (int i = 0; i < loadedList.list.Count; i++)
             {
@@ -30,12 +33,13 @@ public class Inventar_Mini : MonoBehaviour
         }
         Inv_Pers.rid.InvOn();
     }
-    public void Save()
+    public void Save(int i)
     {
+        inventar.Add(i);
         var listInClass = new MyList();
         listInClass.list = inventar;
         var outputString = JsonUtility.ToJson(listInClass);
-        PlayerPrefs.SetString(gameObject.name, outputString);
+        PlayerPrefs.SetString(""+index, outputString);
         Debug.Log("Save");
     }
 }
