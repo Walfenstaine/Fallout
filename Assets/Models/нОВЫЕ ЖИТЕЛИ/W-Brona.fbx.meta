@@ -3,7 +3,12 @@ guid: 1b308f308f40bb448a4bed963a356be1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: W-Brona
+    second: {fileID: 2100000, guid: 1d955cd0e109c46478fb3d7d3c8e2dc5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
