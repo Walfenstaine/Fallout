@@ -52,7 +52,7 @@ public class Cam : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, pos, 3 * Time.deltaTime);
+       
         for (int i = 0; i < perses.Count; i++) 
         {
             perses[i].index = i;
@@ -63,7 +63,8 @@ public class Cam : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0)) 
         {
-            pos += new Vector3(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"), 0) * 30 * Time.deltaTime;
+            pos += new Vector3(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"), 0) * 100 * Time.deltaTime;
         }
+        transform.position = Vector3.Lerp(transform.position, pos, 3 * Time.deltaTime);
     }
 }

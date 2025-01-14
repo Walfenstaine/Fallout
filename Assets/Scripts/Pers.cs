@@ -13,7 +13,6 @@ public class Pers : MonoBehaviour
     {
         agent.avoidancePriority = Random.Range(0,99);
         active = true;
-        Ontarget(transform.forward * Random.Range(1,30));
         Point.pos += Ontarget;
     }
     private void OnDisable()
@@ -39,7 +38,7 @@ public class Pers : MonoBehaviour
         {
             active = false;
             anim.SetBool("Run", true);
-            anim.SetFloat("Speed", agent.velocity.magnitude/2);
+            anim.SetFloat("Speed", agent.velocity.magnitude/agent.speed);
         }
         else 
         {

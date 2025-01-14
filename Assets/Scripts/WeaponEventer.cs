@@ -27,7 +27,7 @@ public class WeaponEventer : MonoBehaviour
         if (weaponNum == 0)
         {
             anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(2, 0);
+            anim.SetLayerWeight(0, 0);
         }
         else
         {
