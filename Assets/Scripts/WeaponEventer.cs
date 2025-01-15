@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class WeaponEventer : MonoBehaviour
 {
-    public int weaponNum;
+    public int weaponNum, bronyaNum;
     public int[] layers;
     public Mesh[] mesh;
+    public Mesh[] bronMesh;
+    public Material[] bronMat;
     public Material[] material;
+    public SkinnedMeshRenderer smr;
     public MeshFilter weaponsMesh;
     public MeshRenderer weaponsMat;
     public Animator anim;
@@ -20,9 +23,14 @@ public class WeaponEventer : MonoBehaviour
     {
         for (int i = 0; i < mesh.Length; i++) 
         {
-            weaponsMesh.mesh = mesh[weaponNum];
-            weaponsMat.material = material[weaponNum];
-            
+           smr.material = material[bronyaNum];
+
+        }
+        for (int i = 0; i < bronMat.Length; i++)
+        {
+            smr.material = bronMat[bronyaNum];
+            smr.sharedMesh = bronMesh[bronyaNum];
+
         }
         if (weaponNum == 0)
         {

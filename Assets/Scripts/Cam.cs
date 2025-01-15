@@ -19,6 +19,7 @@ public class Cam : MonoBehaviour
             for (int i = 0; i < PlayerPrefs.GetInt("Pers"); i++)
             {
                 GameObject g = Instantiate(pers);
+                g.transform.position = transform.position;
                 perses.Add(g.GetComponent<Inventar_Mini>());
             }
         }
