@@ -23,8 +23,8 @@ public class WeaponEventer : MonoBehaviour
     {
         for (int i = 0; i < mesh.Length; i++) 
         {
-           smr.material = material[bronyaNum];
-
+           weaponsMat.material = material[weaponNum];
+           weaponsMesh.mesh = mesh[weaponNum];
         }
         for (int i = 0; i < bronMat.Length; i++)
         {
@@ -32,14 +32,6 @@ public class WeaponEventer : MonoBehaviour
             smr.sharedMesh = bronMesh[bronyaNum];
 
         }
-        if (weaponNum == 0)
-        {
-            anim.SetLayerWeight(1, 0);
-            anim.SetLayerWeight(0, 0);
-        }
-        else
-        {
-            anim.SetLayerWeight(layers[weaponNum], 1);
-        }
+        anim.SetLayerWeight(layers[weaponNum], 1);
     }
 }
